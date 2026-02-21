@@ -20,8 +20,8 @@
 
         /* Pre-loader */
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #000; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #00d2ff; font-family: 'Orbitron', sans-serif; }
-        .loader-text { font-size: 1.5rem; letter-spacing: 3px; animation: blink 1s infinite; text-align: center;}
-        .progress-bar { width: 300px; height: 5px; background: #111; margin-top: 20px; border-radius: 5px; overflow: hidden; position: relative; }
+        .loader-text { font-size: 1.5rem; letter-spacing: 3px; animation: blink 1s infinite; text-align: center; padding: 0 20px;}
+        .progress-bar { width: 80%; max-width: 300px; height: 5px; background: #111; margin-top: 20px; border-radius: 5px; overflow: hidden; position: relative; }
         .progress { width: 0%; height: 100%; background: #00d2ff; box-shadow: 0 0 15px #00d2ff; animation: load 2.5s forwards; }
         @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -32,13 +32,12 @@
         #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background: radial-gradient(circle, #111 0%, #000 100%); }
         .marquee-bar { background: linear-gradient(90deg, #ff00cc, #00d2ff, #333399); padding: 8px 0; color: white; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* Header & NEW Glitch Effect */
+        /* Header & Glitch Effect */
         header { text-align: center; padding: 50px 20px 30px; position: relative; }
         .profile-container { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; padding: 5px; background: conic-gradient(from 0deg, #00d2ff, #ff00cc, #00d2ff); animation: spinBorder 4s linear infinite; box-shadow: 0 0 30px rgba(0, 210, 255, 0.5); }
         .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #050505; }
         @keyframes spinBorder { 100% { transform: rotate(360deg); } }
         
-        /* The Glitch CSS */
         .glitch-wrapper { position: relative; display: inline-block; margin-bottom: 5px; }
         .glitch { font-family: 'Orbitron', sans-serif; font-size: 4.5rem; font-weight: 900; color: #fff; position: relative; text-shadow: 0 0 20px rgba(0, 242, 254, 0.5); }
         .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #050505; }
@@ -53,15 +52,15 @@
             100% { clip: rect(10px, 9999px, 31px, 0); transform: skew(0deg); }
         }
 
-        .typewriter-text { font-size: 1.3rem; color: #00d2ff; height: 25px; letter-spacing: 2px; font-weight: 300; margin-bottom: 10px; }
+        .typewriter-text { font-size: 1.3rem; color: #00d2ff; height: 30px; letter-spacing: 2px; font-weight: 300; margin-bottom: 10px; }
         .live-clock { font-size: 1.2rem; color: #ff00cc; font-family: 'Space Mono', monospace; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 0, 204, 0.8);}
         .location-link { display: inline-block; text-decoration: none; color: #aaa; padding: 10px 20px; border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 30px; transition: 0.3s; cursor: none; }
         .location-link i { color: #ff0055; margin-right: 8px; }
         .location-link:hover { color: white; border-color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
-        /* Cards & Buttons */
+        /* Cards */
         .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 50px 20px; max-width: 1300px; margin: 0 auto; }
-        .card { background: rgba(20, 20, 20, 0.6); border-radius: 20px; padding: 40px 30px; width: 340px; text-align: center; backdrop-filter: blur(15px); position: relative; overflow: hidden; transform-style: preserve-3d; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
+        .card { background: rgba(20, 20, 20, 0.6); border-radius: 20px; padding: 40px 30px; width: 100%; max-width: 340px; text-align: center; backdrop-filter: blur(15px); position: relative; overflow: hidden; transform-style: preserve-3d; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
         .card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, transparent, transparent, #00d2ff); animation: borderRotate 4s linear infinite; z-index: -2; opacity: 0; transition: 0.5s; }
         .card::after { content: ''; position: absolute; inset: 3px; background: #111; border-radius: 17px; z-index: -1; }
         .card:hover::before { opacity: 1; }
@@ -70,37 +69,72 @@
         .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; transform: translateZ(40px); }
         .card p { font-size: 0.95rem; color: #aaa; margin-bottom: 30px; transform: translateZ(30px); }
         
-        .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 5px; cursor: none; position: relative; overflow: hidden; width: 100%; display: block; transform: translateZ(40px); transition: 0.3s; }
+        .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 5px; cursor: none; position: relative; overflow: hidden; width: 100%; display: block; transform: translateZ(40px); transition: 0.3s; font-size: 0.9rem;}
         .cyber-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
         
         /* Modals */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px;}
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-content { background: rgba(10, 10, 10, 0.95); border: 2px solid #00d2ff; border-radius: 10px; padding: 40px; width: 90%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 0 50px rgba(0, 210, 255, 0.3); transform: translateY(50px); transition: 0.4s; }
+        .modal-content { background: rgba(10, 10, 10, 0.95); border: 2px solid #00d2ff; border-radius: 10px; padding: 40px; width: 100%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 0 50px rgba(0, 210, 255, 0.3); transform: translateY(50px); transition: 0.4s; max-height: 90vh; overflow-y: auto;}
         .modal-overlay.active .modal-content { transform: translateY(0); }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #00d2ff; cursor: none; transition: 0.3s; }
         .close-modal:hover { color: #ff00cc; transform: rotate(90deg); }
-        .modal-content h2 { font-family: 'Orbitron'; color: #00d2ff; margin-bottom: 25px; display: flex; align-items: center; }
+        .modal-content h2 { font-family: 'Orbitron'; color: #00d2ff; margin-bottom: 25px; display: flex; align-items: center; font-size: 1.5rem;}
         .modal-content h2 i { margin-right: 15px; }
-        .modal-list { list-style: none; margin-bottom: 30px; }
+        .modal-list { list-style: none; margin-bottom: 30px; font-size: 0.9rem;}
         .modal-list li { margin-bottom: 12px; padding-left: 25px; position: relative; color: #ddd; }
         .modal-list li::before { content: '⚡'; position: absolute; left: 0; color: #00d2ff; }
 
         /* Developer Footer & Terminal Icon */
-        .developer-footer { text-align: center; padding: 25px; margin-top: 50px; border-top: 1px solid rgba(0, 210, 255, 0.2); background: rgba(5, 5, 5, 0.9); font-family: 'Orbitron', sans-serif; color: #888; font-size: 0.95rem; letter-spacing: 2px; position: relative; z-index: 10; }
+        .developer-footer { text-align: center; padding: 25px 15px; margin-top: 50px; border-top: 1px solid rgba(0, 210, 255, 0.2); background: rgba(5, 5, 5, 0.9); font-family: 'Orbitron', sans-serif; color: #888; font-size: 0.9rem; letter-spacing: 2px; position: relative; z-index: 10; line-height: 1.6;}
         .dev-name { color: #00d2ff; font-weight: 700; cursor: none; transition: 0.3s; text-shadow: 0 0 10px rgba(0, 210, 255, 0.8); position: relative; display: inline-block; }
         .dev-name:hover { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; transform: scale(1.1); }
-        .terminal-btn { margin-left: 15px; color: #00ff00; cursor: none; font-size: 1.2rem; transition: 0.3s; }
+        .terminal-btn { margin-left: 10px; color: #00ff00; cursor: none; font-size: 1.2rem; transition: 0.3s; }
         .terminal-btn:hover { color: #fff; text-shadow: 0 0 10px #00ff00; }
 
-        /* --- THE SECRET HACKER TERMINAL --- */
-        #hacker-terminal { position: fixed; bottom: 20px; right: 20px; width: 400px; height: 300px; background: rgba(0, 0, 0, 0.95); border: 1px solid #00ff00; border-radius: 5px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); z-index: 10001; display: none; flex-direction: column; font-family: 'Space Mono', monospace; overflow: hidden; }
+        /* Hacker Terminal */
+        #hacker-terminal { position: fixed; bottom: 20px; right: 20px; width: 400px; max-width: 90vw; height: 300px; background: rgba(0, 0, 0, 0.95); border: 1px solid #00ff00; border-radius: 5px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); z-index: 10001; display: none; flex-direction: column; font-family: 'Space Mono', monospace; overflow: hidden; }
         .term-header { background: #111; padding: 8px 15px; border-bottom: 1px solid #00ff00; color: #00ff00; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
         .term-close { color: red; font-weight: bold; cursor: none; }
-        .term-body { padding: 10px; flex-grow: 1; overflow-y: auto; color: #00ff00; font-size: 0.9rem; }
+        .term-body { padding: 10px; flex-grow: 1; overflow-y: auto; color: #00ff00; font-size: 0.85rem; }
         .term-input-line { display: flex; padding: 10px; border-top: 1px dashed #333; }
-        .term-prompt { color: #00d2ff; margin-right: 10px; }
-        .term-input { background: transparent; border: none; color: #fff; font-family: 'Space Mono', monospace; font-size: 0.9rem; outline: none; width: 100%; cursor: none; }
+        .term-prompt { color: #00d2ff; margin-right: 10px; font-size: 0.85rem;}
+        .term-input { background: transparent; border: none; color: #fff; font-family: 'Space Mono', monospace; font-size: 0.85rem; outline: none; width: 100%; cursor: none; }
+
+
+        /* ==========================================================================
+           MOBILE RESPONSIVENESS (Ye Code Mobile par Magic Karega)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            /* Disable custom cursor on touch screens */
+            .cursor-dot, .cursor-outline { display: none !important; }
+            * { cursor: auto !important; }
+
+            /* Fix Header & Glitch Text */
+            header { padding: 30px 10px 20px; }
+            .glitch { font-size: 2.2rem; text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+            .typewriter-text { font-size: 0.9rem; height: auto; min-height: 25px; margin-bottom: 15px; letter-spacing: 1px;}
+            .live-clock { font-size: 0.9rem; margin-bottom: 15px;}
+            .location-link { font-size: 0.85rem; padding: 8px 15px; }
+
+            /* Fix Cards for Mobile */
+            .container { padding: 30px 15px; gap: 25px;}
+            .card { max-width: 100%; padding: 30px 20px; }
+            .card i.main-icon { font-size: 3rem; margin-bottom: 15px; }
+            .card h3 { font-size: 1.3rem; }
+            .card p { font-size: 0.85rem; margin-bottom: 20px;}
+
+            /* Fix Modals */
+            .modal-content { padding: 25px 20px; }
+            .modal-content h2 { font-size: 1.3rem; }
+            .modal-list { font-size: 0.85rem; }
+            
+            /* Fix Terminal */
+            #hacker-terminal { bottom: 10px; right: 5%; width: 90%; height: 250px; }
+            
+            /* Fix Marquee */
+            .marquee-bar { font-size: 0.75rem; padding: 6px 0;}
+        }
 
     </style>
 </head>
@@ -121,7 +155,7 @@
 
     <header data-aos="zoom-in" data-aos-duration="1200">
         <div class="profile-container">
-            <img src="profile.jpg" alt="Shaddab Bhai" class="profile-pic">
+            <img src="profile.jpg" alt="Shaddab Bhai" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/000000/00d2ff?text=Shaddab'">
         </div>
 
         <div class="glitch-wrapper">
@@ -218,7 +252,7 @@
         </div>
         <div class="term-input-line">
             <span class="term-prompt">root@vw:~$</span>
-            <input type="text" class="term-input" id="term-input" autocomplete="off" autofocus>
+            <input type="text" class="term-input" id="term-input" autocomplete="off">
         </div>
     </div>
 
@@ -244,50 +278,57 @@
         }
         setInterval(updateClock, 1000); updateClock();
 
-        // --- CURSOR ---
+        // --- CURSOR (Only runs if screen is bigger than 768px) ---
         const cursorDot = document.getElementById("cursor-dot"); const cursorOutline = document.getElementById("cursor-outline");
         window.addEventListener("mousemove", function (e) {
-            cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
-            cursorOutline.animate({ left: `${e.clientX - 20}px`, top: `${e.clientY - 20}px` }, { duration: 500, fill: "forwards" });
+            if(window.innerWidth > 768) {
+                cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+                cursorOutline.animate({ left: `${e.clientX - 20}px`, top: `${e.clientY - 20}px` }, { duration: 500, fill: "forwards" });
+            }
         });
 
-        // --- WEB AUDIO API (SOUND EFFECTS) ---
+        // --- SOUND EFFECTS ---
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playBeep(frequency, type, duration) {
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            oscillator.type = type; oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-            oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
-            oscillator.start(); oscillator.stop(audioCtx.currentTime + duration);
+            if(window.innerWidth > 768) { // Sound effects strictly for desktop to prevent mobile issues
+                if(audioCtx.state === 'suspended') audioCtx.resume();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.type = type; oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
+                oscillator.start(); oscillator.stop(audioCtx.currentTime + duration);
+            }
         }
 
-        // Add sound listeners to buttons and links
+        // Add sound listeners (Only triggers on desktop usually due to check inside playBeep)
         document.querySelectorAll('.interaction-target').forEach(item => {
-            item.addEventListener('mouseenter', () => playBeep(800, 'sine', 0.1)); // Hover beep
-            item.addEventListener('click', () => playBeep(400, 'square', 0.15)); // Click beep
+            item.addEventListener('mouseenter', () => playBeep(800, 'sine', 0.1)); 
+            item.addEventListener('click', () => playBeep(400, 'square', 0.15)); 
         });
 
         // Initializations
         new Typed('#typed', { strings: ["Digital Seva Ka Powerhouse.", "Cyber-Secured Data Handling.", "Fast & Trusted Service."], typeSpeed: 50, backSpeed: 30, loop: true });
         AOS.init({ duration: 1000, once: true });
-        particlesJS("particles-js", { "particles": { "number": { "value": 80 }, "color": { "value": "#00d2ff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 2 }, "line_linked": { "enable": true, "distance": 150, "color": "#00d2ff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1.5 } }, "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } } });
+        
+        // Particles adjust based on screen
+        let particleAmount = window.innerWidth < 768 ? 30 : 80;
+        particlesJS("particles-js", { "particles": { "number": { "value": particleAmount }, "color": { "value": "#00d2ff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 2 }, "line_linked": { "enable": true, "distance": 150, "color": "#00d2ff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1.5 } }, "interactivity": { "events": { "onhover": { "enable": window.innerWidth > 768, "mode": "grab" } } } });
 
         // Modals & WA
         function openModal(id) { document.getElementById(id).classList.add('active'); playBeep(600, 'sine', 0.2); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); playBeep(300, 'sine', 0.1); }
         function sendWhatsApp(service) { window.open(`https://wa.me/917320896241?text=${encodeURIComponent(`*Secure Request:*\nHi Shaddab Bhai, querying about: *${service}*.`)}`, '_blank'); }
 
-        // --- HACKER TERMINAL LOGIC ---
+        // --- HACKER TERMINAL ---
         const terminal = document.getElementById('hacker-terminal');
         const termInput = document.getElementById('term-input');
         const termOutput = document.getElementById('term-output');
 
         function toggleTerminal() {
             terminal.style.display = terminal.style.display === 'flex' ? 'none' : 'flex';
-            if(terminal.style.display === 'flex') termInput.focus();
+            if(terminal.style.display === 'flex' && window.innerWidth > 768) termInput.focus();
         }
 
         function devEasterEgg() { alert("⚠️ ACCESS GRANTED ⚠️\nEngineer: Sameer (BCA/Cyber Sec)\nStatus: Secure 🟢"); }
@@ -314,8 +355,8 @@
                 
                 if(response) termOutput.innerHTML += `<div style="margin-bottom: 10px;">${response}</div>`;
                 this.value = '';
-                termOutput.scrollTop = termOutput.scrollHeight; // Auto-scroll
-                playBeep(900, 'triangle', 0.1); // Keyboard enter sound
+                termOutput.scrollTop = termOutput.scrollHeight; 
+                playBeep(900, 'triangle', 0.1); 
             }
         });
     </script>
