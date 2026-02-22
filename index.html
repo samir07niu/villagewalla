@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VillageWalla - Pro Control Center</title>
+    <title>VillageWalla - Ultra Cyber Center</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,7 +31,6 @@
         .glitch-wrapper { position: relative; display: inline-block; margin-bottom: 5px; }
         .glitch { font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900; color: #fff; position: relative; text-shadow: 0 0 20px rgba(0, 242, 254, 0.5); }
         
-        /* NEW: Shop Status Badge */
         .shop-status-badge { display: inline-block; margin-bottom: 15px; padding: 8px 25px; border-radius: 30px; font-weight: bold; font-family: 'Space Mono', monospace; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); box-shadow: 0 0 15px rgba(0,0,0,0.5);}
 
         .typewriter-text { font-size: 1.2rem; color: #00d2ff; height: 30px; letter-spacing: 2px; font-weight: 300; margin-bottom: 10px; }
@@ -40,7 +39,6 @@
 
         .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 30px 20px 50px; max-width: 1300px; margin: 0 auto; }
         
-        /* Offer Card Special */
         .offer-card { background: rgba(255, 0, 204, 0.1); border-radius: 20px; padding: 30px; width: 100%; max-width: 800px; text-align: center; border: 2px dashed #ff00cc; box-shadow: 0 0 30px rgba(255, 0, 204, 0.2); margin: 0 auto 30px; }
         .offer-card h2 { color: #ff00cc; font-family: 'Orbitron'; margin-bottom: 10px; }
         .offer-card p { font-size: 1.2rem; color: white; font-weight: bold; }
@@ -53,18 +51,30 @@
         
         .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 20px; font-weight: 600; text-transform: uppercase; border-radius: 5px; cursor: none; width: 100%; display: block; transition: 0.3s;}
         .cyber-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
+
+        /* --- DETAILS MODALS (Popups) CSS WAPAS AAGAYA --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px;}
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { background: rgba(10, 10, 10, 0.95); border: 2px solid #00d2ff; border-radius: 10px; padding: 40px; width: 100%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 0 50px rgba(0, 210, 255, 0.3); transform: translateY(50px); transition: 0.4s; max-height: 90vh; overflow-y: auto;}
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #00d2ff; cursor: none; transition: 0.3s; }
+        .close-modal:hover { color: #ff00cc; transform: rotate(90deg); }
+        .modal-list { list-style: none; margin-bottom: 30px; font-size: 0.95rem;}
+        .modal-list li { margin-bottom: 12px; padding-left: 25px; position: relative; color: #ddd; }
+        .modal-list li::before { content: '⚡'; position: absolute; left: 0; color: #00d2ff; }
         
+        /* Developer Footer */
         .developer-footer { text-align: center; padding: 30px 15px; margin-top: 50px; border-top: 1px solid rgba(0, 210, 255, 0.2); background: rgba(5, 5, 5, 0.9); font-family: 'Orbitron', sans-serif; color: #888; font-size: 0.9rem; }
-        .dev-name { color: #00d2ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 210, 255, 0.8); }
+        .dev-name { color: #00d2ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 210, 255, 0.8); cursor: pointer;}
         .admin-login-btn { display: inline-block; margin-top: 15px; padding: 8px 20px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; border-radius: 5px; cursor: none; transition: 0.3s; font-weight: bold; letter-spacing: 1px;}
         .admin-login-btn:hover { background: #00ff00; color: #000; box-shadow: 0 0 15px #00ff00; }
 
-        /* --- MODERN ADMIN DASHBOARD CSS --- */
-        #admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px;}
+        /* Admin UI */
+        #admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10001; justify-content: center; align-items: center; padding: 20px;}
         .login-box { background: #111; border: 2px solid #00d2ff; padding: 40px; border-radius: 15px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 0 30px rgba(0, 210, 255, 0.3); }
         .admin-input, .admin-select { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #00d2ff; background: #050505; color: white; font-family: 'Space Mono', monospace; font-size: 1rem;}
         
-        #admin-dashboard { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 10001; overflow-y: auto; padding: 30px 20px; }
+        #admin-dashboard { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 10002; overflow-y: auto; padding: 30px 20px; }
         .dash-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 30px; max-width: 1000px; margin-left: auto; margin-right: auto;}
         .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
         .dash-card { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; text-align: left; }
@@ -117,24 +127,81 @@
             <i class="fa-solid fa-fingerprint main-icon"></i>
             <h3>Aadhar Hub</h3>
             <p>Sabhi prakar ke Aadhar sudhar aur printing suvidha.</p>
-            <button class="cyber-btn" onclick="sendWhatsApp('Aadhar Services')">CONNECT (WhatsApp)</button>
+            <button class="cyber-btn" onclick="openModal('modalAadhar')">DECRYPT DETAILS</button>
         </div>
         <div class="card" data-aos="fade-up" data-delay="100">
             <i class="fa-solid fa-plane-departure main-icon"></i>
             <h3>Travel Zone</h3>
             <p>Train aur Flight tickets ki confirm booking.</p>
-            <button class="cyber-btn" onclick="sendWhatsApp('Ticket Booking')">CONNECT (WhatsApp)</button>
+            <button class="cyber-btn" onclick="openModal('modalTravel')">DECRYPT DETAILS</button>
         </div>
         <div class="card" data-aos="fade-up" data-delay="200">
             <i class="fa-solid fa-file-signature main-icon"></i>
             <h3>Docu-Center</h3>
             <p>Sarkari Praman Patra aur Ration Card seva.</p>
-            <button class="cyber-btn" onclick="sendWhatsApp('Documents Service')">CONNECT (WhatsApp)</button>
+            <button class="cyber-btn" onclick="openModal('modalDocs')">DECRYPT DETAILS</button>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-delay="300" style="border-color: #ff00cc; background: rgba(50, 0, 30, 0.4);">
+            <i class="fa-solid fa-link main-icon" style="color: #ff00cc;"></i>
+            <h3 style="color: #ff00cc;">Govt. Quick Links</h3>
+            <p>Direct official sarkari portals par jayein aur form bharein.</p>
+            <button class="cyber-btn" style="border-color: #ff00cc; color: #ff00cc; margin-bottom: 10px;" onclick="window.open('https://myaadhaar.uidai.gov.in/', '_blank')">UIDAI Aadhar</button>
+            <button class="cyber-btn" style="border-color: #ff00cc; color: #ff00cc; margin-bottom: 10px;" onclick="window.open('https://www.irctc.co.in/', '_blank')">IRCTC Login</button>
+            <button class="cyber-btn" style="border-color: #ff00cc; color: #ff00cc;" onclick="window.open('https://pmkisan.gov.in/', '_blank')">PM Kisan Yojana</button>
+        </div>
+    </div>
+
+    <div id="modalAadhar" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalAadhar')">×</span>
+            <h2 style="color: #00d2ff; margin-bottom: 20px; font-family: 'Orbitron';"><i class="fa-solid fa-fingerprint"></i> Aadhar Services</h2>
+            <ul class="modal-list">
+                <li>Naya Aadhar Card Banwaye</li>
+                <li>Naam Correction (Name Change)</li>
+                <li>Janam Tithi Sudhar (DOB Update)</li>
+                <li>Mobile Number Link/Update</li>
+                <li>Pata (Address) Change</li>
+                <li>Bina OTP Nikale (Only 10 Mins)</li>
+            </ul>
+            <button class="cyber-btn" style="background: #25D366; color: white; border: none;" onclick="sendWhatsApp('Detailed Aadhar Inquiry')"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+        </div>
+    </div>
+
+    <div id="modalTravel" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalTravel')">×</span>
+            <h2 style="color: #00d2ff; margin-bottom: 20px; font-family: 'Orbitron';"><i class="fa-solid fa-plane"></i> Travel Booking</h2>
+            <ul class="modal-list">
+                <li>Confirm Train Ticket Booking</li>
+                <li>Tatkal Ticket Suvidha</li>
+                <li>Premium Tatkal Booking</li>
+                <li>Domestic & International Flights</li>
+                <li>Bus Ticket Booking</li>
+            </ul>
+            <button class="cyber-btn" style="background: #25D366; color: white; border: none;" onclick="sendWhatsApp('Detailed Travel Inquiry')"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+        </div>
+    </div>
+
+    <div id="modalDocs" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalDocs')">×</span>
+            <h2 style="color: #00d2ff; margin-bottom: 20px; font-family: 'Orbitron';"><i class="fa-solid fa-file-shield"></i> Gov. Documents</h2>
+            <ul class="modal-list">
+                <li>Jati Praman Patra (Caste)</li>
+                <li>Aay Praman Patra (Income)</li>
+                <li>Niwas Praman Patra (Domicile)</li>
+                <li>Janam Praman Patra (Birth)</li>
+                <li>Ration Card Me Naam Jodna</li>
+                <li>Naya Ration Card Apply</li>
+                <li>PAN Card Apply/Correction</li>
+            </ul>
+            <button class="cyber-btn" style="background: #25D366; color: white; border: none;" onclick="sendWhatsApp('Detailed Document Inquiry')"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
         </div>
     </div>
 
     <div class="developer-footer">
-        <p>SYSTEM ARCHITECT: <span class="dev-name">SAMEER</span></p>
+        <p>SYSTEM ARCHITECT: <span class="dev-name" onclick="devEasterEgg()">SAMEER</span></p>
         <div class="admin-login-btn" onclick="openAdminLogin()">
             <i class="fa-solid fa-shield-halved"></i> SECURE ADMIN LOGIN
         </div>
@@ -205,6 +272,14 @@
 
         function sendWhatsApp(service) { window.open(`https://wa.me/917320896241?text=${encodeURIComponent(`*Website Inquiry:*\nHi Shaddab Bhai, mujhe *${service}* ke baare mein janna hai.`)}`, '_blank'); }
 
+        // --- MODAL FUNCTIONS (Popups) ---
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        window.onclick = function(event) { if (event.target.classList.contains('modal-overlay')) { event.target.classList.remove('active'); } }
+
+        // --- DEVELOPER EASTER EGG FIXED ---
+        function devEasterEgg() { alert("⚠️ ACCESS GRANTED ⚠️\nDeveloper: Sameer\nCourse: BCA @ NIU\nStatus: Systems Online & Secure 🟢\n\nNice to see you found my signature!"); }
+
         // Security
         function openAdminLogin() { document.getElementById('admin-modal').style.display = 'flex'; }
         function closeAdminLogin() { document.getElementById('admin-modal').style.display = 'none'; }
@@ -234,18 +309,14 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        // READ DATA FROM FIREBASE IN REALTIME
         const dbRef = ref(db, 'village_walla_controls');
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val() || {};
             
-            // 1. Update Notice
             document.getElementById('live-notice').innerText = "⚡ " + (data.notice || "Welcome to VillageWalla") + " ⚡";
             
-            // 2. Update Offer
             document.getElementById('live-offer').innerText = data.offer || "Aaj ke liye koi special offer nahi hai. Dukan par visit karein.";
             
-            // 3. Update Status
             const statusBadge = document.getElementById('shop-status');
             if(data.status === "closed") {
                 statusBadge.innerHTML = "🔴 DUKAAN BAND HAI";
@@ -258,11 +329,9 @@
             }
         });
 
-        // WRITE DATA TO FIREBASE (Global function setup)
         window.updateFirebaseData = function(type) {
             const currentDataRef = ref(db, 'village_walla_controls');
             
-            // We first need the existing data so we don't overwrite other fields
             onValue(currentDataRef, (snapshot) => {
                 let currentData = snapshot.val() || { status: "open", offer: "", notice: "" };
                 
@@ -280,7 +349,6 @@
                     currentData.notice = newValue;
                 }
 
-                // Push updated object to Firebase
                 set(currentDataRef, currentData)
                 .then(() => {
                     alert(`✅ SUCCESS: ${type.toUpperCase()} update ho gaya hai!`);
@@ -291,7 +359,7 @@
                     alert("❌ ERROR: Data save nahi hua.\n" + error);
                 });
                 
-            }, { onlyOnce: true }); // Ensure it only reads once before writing
+            }, { onlyOnce: true }); 
         }
     </script>
 </body>
