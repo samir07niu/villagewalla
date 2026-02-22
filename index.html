@@ -49,9 +49,11 @@
         .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 20px; font-weight: 600; text-transform: uppercase; border-radius: 5px; cursor: none; width: 100%; display: block; transition: 0.3s;}
         .cyber-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
         
-        /* Developer Footer */
-        .developer-footer { text-align: center; padding: 25px 15px; margin-top: 50px; border-top: 1px solid rgba(0, 210, 255, 0.2); background: rgba(5, 5, 5, 0.9); font-family: 'Orbitron', sans-serif; color: #888; font-size: 0.9rem; }
-        .dev-name { color: #00d2ff; font-weight: 700; cursor: none; transition: 0.3s; text-shadow: 0 0 10px rgba(0, 210, 255, 0.8); }
+        /* Developer Footer & CLEAR Admin Button */
+        .developer-footer { text-align: center; padding: 30px 15px; margin-top: 50px; border-top: 1px solid rgba(0, 210, 255, 0.2); background: rgba(5, 5, 5, 0.9); font-family: 'Orbitron', sans-serif; color: #888; font-size: 0.9rem; }
+        .dev-name { color: #00d2ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 210, 255, 0.8); }
+        .admin-login-btn { display: inline-block; margin-top: 15px; padding: 8px 20px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; border-radius: 5px; cursor: none; transition: 0.3s; font-weight: bold; letter-spacing: 1px;}
+        .admin-login-btn:hover { background: #00ff00; color: #000; box-shadow: 0 0 15px #00ff00; }
 
         /* --- ADMIN PANEL CSS --- */
         #admin-modal, #admin-dashboard { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; padding: 20px;}
@@ -119,14 +121,17 @@
     </div>
 
     <div class="developer-footer">
-        <p>SYSTEM ARCHITECT: <span class="dev-name">SAMEER</span> | 
-        <span style="cursor:pointer; color: #00ff00;" onclick="openAdminLogin()">[ Admin Panel ]</span></p>
+        <p>SYSTEM ARCHITECT: <span class="dev-name">SAMEER</span></p>
+        <div class="admin-login-btn" onclick="openAdminLogin()">
+            <i class="fa-solid fa-shield-halved"></i> SECURE ADMIN LOGIN
+        </div>
     </div>
 
     <div id="admin-modal">
         <div class="admin-box">
-            <h2 style="color: #00d2ff; margin-bottom: 20px;">SYSTEM LOGIN</h2>
-            <input type="password" id="admin-pass" class="admin-input" placeholder="Enter Secure PIN (7320)">
+            <h2 style="color: #00d2ff; margin-bottom: 20px;"><i class="fa-solid fa-lock"></i> SYSTEM LOGIN</h2>
+            <input type="text" id="admin-id" class="admin-input" placeholder="Enter Admin ID">
+            <input type="password" id="admin-pass" class="admin-input" placeholder="Enter Secure Password">
             <button class="cyber-btn" onclick="checkAdmin()">Authenticate</button>
             <p style="margin-top: 15px; cursor: pointer; color: #ff0033;" onclick="closeAdminLogin()">[ Abort ]</p>
         </div>
@@ -134,12 +139,12 @@
 
     <div id="admin-dashboard">
         <div class="admin-box" style="max-width: 600px;">
-            <h2 style="color: #00ff00; margin-bottom: 20px;">ACCESS GRANTED: ADMIN</h2>
+            <h2 style="color: #00ff00; margin-bottom: 20px;"><i class="fa-solid fa-unlock-keyhole"></i> ACCESS GRANTED</h2>
             <p style="color: #aaa; margin-bottom: 20px;">Welcome Shadab Bhai. Yahan se Notice update karein:</p>
             
             <input type="text" id="new-notice-input" class="admin-input" placeholder="Naya offer ya notice yahan likhein...">
             
-            <button class="cyber-btn" id="push-notice-btn" style="background: #00ff00; color: black; border: none; margin-bottom: 15px;">PUSH TO LIVE WEBSITE</button>
+            <button class="cyber-btn" id="push-notice-btn" style="background: #00ff00; color: black; border: none; margin-bottom: 15px; font-weight: 800;">PUSH TO LIVE WEBSITE</button>
             
             <p style="margin-top: 15px; cursor: pointer; color: #ff0033;" onclick="closeDashboard()">[ Secure Logout ]</p>
         </div>
@@ -167,21 +172,29 @@
         // WhatsApp Link
         function sendWhatsApp(service) { window.open(`https://wa.me/917320896241?text=${encodeURIComponent(`*Website Inquiry:*\nHi Shaddab Bhai, mujhe *${service}* ke baare mein janna hai.`)}`, '_blank'); }
 
-        // Admin UI Toggles
+        // Admin UI Toggles with 2-Layer Security
         function openAdminLogin() { document.getElementById('admin-modal').style.display = 'flex'; }
         function closeAdminLogin() { document.getElementById('admin-modal').style.display = 'none'; }
+        
         function checkAdmin() {
-            if(document.getElementById('admin-pass').value === "7320") {
+            const adminId = document.getElementById('admin-id').value.trim();
+            const adminPass = document.getElementById('admin-pass').value.trim();
+            
+            // Checking both Admin ID and Password
+            if(adminId === "shadab" && adminPass === "SHADAB@786#123") {
                 document.getElementById('admin-modal').style.display = 'none';
                 document.getElementById('admin-dashboard').style.display = 'flex';
+                // Clear fields for security
+                document.getElementById('admin-id').value = '';
                 document.getElementById('admin-pass').value = '';
-            } else { alert("ACCESS DENIED: Incorrect PIN"); }
+            } else { 
+                alert("ACCESS DENIED: Invalid Admin ID or Password!"); 
+            }
         }
         function closeDashboard() { document.getElementById('admin-dashboard').style.display = 'none'; }
     </script>
 
     <script type="module">
-        // Import Firebase Functions
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
         import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
 
@@ -204,10 +217,8 @@
         onValue(noticeRef, (snapshot) => {
             const data = snapshot.val();
             if(data) {
-                // Agar database me data hai, toh website pe dikhao
                 document.getElementById('live-notice').innerText = "⚡ " + data + " ⚡";
             } else {
-                // Agar khali hai toh default text
                 document.getElementById('live-notice').innerText = "⚡ Welcome to VillageWalla - CSC Center ⚡";
             }
         });
@@ -217,11 +228,10 @@
             const newNoticeText = document.getElementById('new-notice-input').value;
             
             if(newNoticeText.trim() !== "") {
-                // Send data to Firebase
                 set(ref(db, 'website_data/marquee_notice'), newNoticeText)
                 .then(() => {
                     alert("✅ SUCCESS! Notice update ho gaya hai aur website par live chal raha hai.");
-                    document.getElementById('new-notice-input').value = ""; // Clear input box
+                    document.getElementById('new-notice-input').value = ""; 
                 })
                 .catch((error) => {
                     alert("❌ ERROR: Data save nahi hua. Firebase rules check karein.\n" + error);
