@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VillageWalla - Ultra Cyber Center</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
@@ -17,19 +17,22 @@
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #00d2ff; border-radius: 10px; }
 
+        /* Cursor */
         .cursor-dot { width: 8px; height: 8px; background-color: #00d2ff; border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; box-shadow: 0 0 10px #00d2ff; }
         .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(0, 210, 255, 0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transition: width 0.2s, height 0.2s, background-color 0.2s; }
         #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background: radial-gradient(circle, #111 0%, #000 100%); }
         
+        /* Marquee Bar */
         .marquee-bar { background: linear-gradient(90deg, #ff00cc, #00d2ff, #333399); padding: 8px 0; color: white; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.95rem; }
 
-        header { text-align: center; padding: 50px 20px 30px; position: relative; }
+        /* Header & Glitch Effect */
+        header { text-align: center; padding: 50px 20px 30px; position: relative; width: 100%; }
         .profile-container { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; padding: 5px; background: conic-gradient(from 0deg, #00d2ff, #ff00cc, #00d2ff); animation: spinBorder 4s linear infinite; box-shadow: 0 0 30px rgba(0, 210, 255, 0.5); }
         .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #050505; }
         @keyframes spinBorder { 100% { transform: rotate(360deg); } }
         
-        .glitch-wrapper { position: relative; display: inline-block; margin-bottom: 5px; }
-        .glitch { font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900; color: #fff; position: relative; text-shadow: 0 0 20px rgba(0, 242, 254, 0.5); }
+        .glitch-wrapper { position: relative; display: inline-block; margin-bottom: 5px; width: 100%; text-align: center; }
+        .glitch { font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900; color: #fff; position: relative; text-shadow: 0 0 20px rgba(0, 242, 254, 0.5); display: inline-block; max-width: 100%; word-wrap: break-word; }
         
         .shop-status-badge { display: inline-block; margin-bottom: 15px; padding: 8px 25px; border-radius: 30px; font-weight: bold; font-family: 'Space Mono', monospace; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); box-shadow: 0 0 15px rgba(0,0,0,0.5);}
 
@@ -37,9 +40,10 @@
         .location-link { display: inline-block; text-decoration: none; color: #aaa; padding: 10px 20px; border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 30px; transition: 0.3s; cursor: none; }
         .location-link:hover { color: white; border-color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
+        /* Cards Container */
         .container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 30px 20px 50px; max-width: 1300px; margin: 0 auto; }
         
-        .offer-card { background: rgba(255, 0, 204, 0.1); border-radius: 20px; padding: 30px; width: 100%; max-width: 800px; text-align: center; border: 2px dashed #ff00cc; box-shadow: 0 0 30px rgba(255, 0, 204, 0.2); margin: 0 auto 30px; }
+        .offer-card { background: rgba(255, 0, 204, 0.1); border-radius: 20px; padding: 30px; width: 90%; max-width: 800px; text-align: center; border: 2px dashed #ff00cc; box-shadow: 0 0 30px rgba(255, 0, 204, 0.2); margin: 0 auto 30px; }
         .offer-card h2 { color: #ff00cc; font-family: 'Orbitron'; margin-bottom: 10px; }
         .offer-card p { font-size: 1.2rem; color: white; font-weight: bold; }
 
@@ -49,10 +53,10 @@
         .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
         .card p { font-size: 0.95rem; color: #aaa; margin-bottom: 30px; }
         
-        .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 20px; font-weight: 600; text-transform: uppercase; border-radius: 5px; cursor: none; width: 100%; display: block; transition: 0.3s;}
+        .cyber-btn { background: transparent; color: #00d2ff; border: 1px solid #00d2ff; padding: 12px 20px; font-weight: 600; text-transform: uppercase; border-radius: 5px; cursor: none; width: 100%; display: block; transition: 0.3s; text-align: center; text-decoration: none;}
         .cyber-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
 
-        /* --- DETAILS MODALS (Popups) CSS WAPAS AAGAYA --- */
+        /* --- DETAILS MODALS (Popups) CSS --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px;}
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-content { background: rgba(10, 10, 10, 0.95); border: 2px solid #00d2ff; border-radius: 10px; padding: 40px; width: 100%; max-width: 500px; text-align: left; position: relative; box-shadow: 0 0 50px rgba(0, 210, 255, 0.3); transform: translateY(50px); transition: 0.4s; max-height: 90vh; overflow-y: auto;}
@@ -80,11 +84,43 @@
         .dash-card { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; text-align: left; }
         .dash-card h3 { color: #00d2ff; margin-bottom: 15px; font-family: 'Orbitron'; font-size: 1.2rem;}
         
+        /* =======================================================================
+           MOBILE RESPONSIVENESS (100% PERFECT FIX FOR PHONES)
+           ======================================================================= */
         @media (max-width: 768px) {
+            /* Disable custom cursor on mobile to fix touch issues */
             .cursor-dot, .cursor-outline { display: none !important; }
             * { cursor: auto !important; }
-            header h1 { font-size: 2.2rem; }
+            
+            /* Fix Header & Glitch Text Overlapping */
+            header { padding: 30px 10px 20px; }
+            .glitch { font-size: 2.2rem !important; text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); letter-spacing: 0; }
+            .typewriter-text { font-size: 1rem; height: auto; min-height: 25px; margin-bottom: 15px;}
+            
+            /* Fix Badges and Offer Card */
+            .shop-status-badge { font-size: 0.9rem; padding: 6px 15px; }
+            .offer-card { padding: 20px 15px; width: 95%; margin: 0 auto 20px; }
+            .offer-card h2 { font-size: 1.1rem; }
+            .offer-card p { font-size: 0.95rem; }
+
+            /* Fix Cards sizing */
+            .container { padding: 20px 15px; gap: 25px;}
+            .card { max-width: 100%; padding: 25px 20px; }
+            .card i.main-icon { font-size: 2.8rem; margin-bottom: 15px; }
+            .card h3 { font-size: 1.3rem; }
+            .card p { font-size: 0.85rem; margin-bottom: 20px;}
+            
+            /* Fix Modals */
+            .modal-content { padding: 25px 15px; }
+            .modal-content h2 { font-size: 1.3rem; }
+            .modal-list { font-size: 0.85rem; }
+
+            /* Fix Admin Dashboard */
             .dash-header { flex-direction: column; gap: 15px; text-align: center; }
+            .login-box { padding: 30px 20px; }
+            
+            /* Fix Marquee font */
+            .marquee-bar { font-size: 0.8rem; padding: 6px 0;}
         }
     </style>
 </head>
@@ -92,6 +128,7 @@
 
     <div class="cursor-dot" id="cursor-dot"></div>
     <div class="cursor-outline" id="cursor-outline"></div>
+    
     <div id="particles-js"></div>
 
     <div class="marquee-bar">
@@ -118,7 +155,7 @@
     </header>
 
     <div class="offer-card" data-aos="zoom-in">
-        <h2><i class="fa-solid fa-gift"></i> TODAY's SPECIAL OFFER</h2>
+        <h2><i class="fa-solid fa-gift"></i> TODAY'S SPECIAL OFFER</h2>
         <p id="live-offer">Loading latest offer from server...</p>
     </div>
 
@@ -268,7 +305,19 @@
 
         new Typed('#typed', { strings: ["Digital Seva Ka Powerhouse.", "CSC Center Safiyabad.", "Fast & Trusted Service."], typeSpeed: 50, backSpeed: 30, loop: true });
         AOS.init({ duration: 1000, once: true });
-        particlesJS("particles-js", { "particles": { "number": { "value": window.innerWidth < 768 ? 30 : 80 }, "color": { "value": "#00d2ff" } } });
+        
+        // Particles Config adjusted to ensure they are small and don't overwhelm mobile
+        particlesJS("particles-js", { 
+            "particles": { 
+                "number": { "value": window.innerWidth < 768 ? 30 : 80 }, 
+                "color": { "value": "#00d2ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 2 }, // Fixed small size
+                "line_linked": { "enable": true, "distance": 150, "color": "#00d2ff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 1.5 }
+            } 
+        });
 
         function sendWhatsApp(service) { window.open(`https://wa.me/917320896241?text=${encodeURIComponent(`*Website Inquiry:*\nHi Shaddab Bhai, mujhe *${service}* ke baare mein janna hai.`)}`, '_blank'); }
 
